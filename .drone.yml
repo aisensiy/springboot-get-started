@@ -24,6 +24,8 @@ pipeline:
     rebuild: true
     mount: [ /drone/.gradle, /drone/.m2 ]
     volumes: /tmp/cache:/cache
+    when: 
+      status: [ success, failure ]
 
   notify:
     image: eisenxu/evaluation-notifier
