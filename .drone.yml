@@ -26,10 +26,3 @@ pipeline:
     volumes: /tmp/cache:/cache
     when: 
       status: [ success, failure ]
-
-  notify:
-    image: eisenxu/evaluation-notifier
-    token: ${TOKEN}
-    host: ${HOST}
-    when:
-      status: [ success, failure ]
