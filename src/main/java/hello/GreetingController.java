@@ -16,17 +16,17 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @RestController
 public class GreetingController {
     private final AtomicLong counter = new AtomicLong();
-    private static final String template = "Hello, %s";
+    private static final String TEMPLATE = "Hello, %s";
 
     @RequestMapping(value = "/greeting", method = GET)
     public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
-        return new Greeting(counter.incrementAndGet(), String.format(template, name));
+        return new Greeting(counter.incrementAndGet(), String.format(TEMPLATE, name));
     }
 
     @RequestMapping(value = "/greeting", method = POST)
     @ResponseStatus(HttpStatus.CREATED)
     public Greeting createGreeting(@RequestBody GreetingRequest greetingRequest) {
-        return new Greeting(counter.incrementAndGet(), String.format(template, greetingRequest.getName()));
+        return new Greeting(counter.incrementAndGet(), String.format(TEMPLATE, greetingRequest.getName()));
     }
 }
 
