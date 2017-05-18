@@ -3,7 +3,7 @@ freeze_files:
     - gradle/
     - gradlew
     - gradlew.bat
-    - src/test/
+    - src/acceptance-test/
     - .drone.yml
     - build.gradle
     - .report.json
